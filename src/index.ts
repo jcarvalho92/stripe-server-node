@@ -23,7 +23,7 @@ interface Product {
 }
 
 app.post('/payment', async (req: Request, res: Response, next: NextFunction) => {
-    
+    console.log(req.body);
     const { email,product , authToken } = req.body;
     const { token } = authToken;
     const { card } = token;
@@ -83,8 +83,8 @@ app.use('/', (req, res, next) => {
 })
 
 const PORT = process.env.PORT || 8000;
+
 app.listen(PORT, () => {
     
     console.log(`Listening to port ${PORT}`)
 })
-
